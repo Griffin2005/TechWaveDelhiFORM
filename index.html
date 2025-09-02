@@ -113,7 +113,7 @@
     }
 
     .banner-img {
-        display: center;           /* centers image */
+        display: block;           /* centers image */
         margin: 0 auto;           /* centers image */
         max-width: 100%;           /* adjusts for container width */
         height: auto;
@@ -146,7 +146,18 @@
         background: #0a1f44; /* dark blue base color */
     }
 
+    @media (min-width: 1024px) {
+  .container {
+    max-width: 700px;  /* increase from 500px to 700px */
+    padding: 40px;     /* optional: add more padding for spacious look */
+  }
 
+    @media (min-width: 768px) {
+        .banner-img {
+            max-width: 100%;   /* bigger on desktop */
+            height: auto;
+        }
+    }
 
 
     @media (max-width: 600px) {
@@ -172,7 +183,8 @@
       <input type="text" name="name" required>
 
       <label>📧 Email *</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" required
+         placeholder="name@ds.study.iitm.ac.in or name@es.study.iitm.ac.in">
 
       <label>📱 Contact Number *</label>
       <input type="tel" name="contact" required>
@@ -221,13 +233,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-
+    
     <script>
 document.getElementById("registrationForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  var formData = new FormData(this);
+  
+  const email = this.email.value.trim();
+  const regex = /^[a-zA-Z0-9._%+-]+@(ds|es)\.study\.iitm\.ac\.in$/;
 
-  fetch("https://script.google.com/macros/s/AKfycbzbcuMZs_c-_QrC3SPPvDx-fmr5IMNkxNpJIrFPhf6SQ7ejHMQism794-xKna8DLT39/exec", {
+  if (!regex.test(email)) {
+    alert("Register with your IIT Madras Student Mail Id");
+    return; // stops submission
+  }
+
+  // if email is valid, submit to Google Sheets
+  var formData = new FormData(this);
+  fetch("YOUR_WEB_APP_URL", {
     method: "POST",
     body: formData
   })
@@ -235,8 +256,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   .then(data => {
     // Hide the form
     this.style.display = "none";
-
-    // Show the confirmation message
+    // Show confirmation message
     document.getElementById("confirmationMessage").style.display = "block";
   })
   .catch(error => alert("Error submitting form: " + error));
