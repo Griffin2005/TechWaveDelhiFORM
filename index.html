@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechWave Delhi Edition - Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Ensure full height and no overflow */
+    html, body {
+      height: 130%;
+      margin: 100;
+      padding: 100;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Moving Gradient Background */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #03020b, #080940, #70697c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      padding: 20px; /* optional space on mobile */
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Form Container */
+    .container {
+      background: #D5F6FB;
+      padding: 30px ;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease, box-shadow 1s ease;
+
+    }
+
+    .container:hover {
+        transform: translateY(-10px); /* moves container slightly up */
+        box-shadow: 0 12px 25px rgba(0,0,0,0.25); /* stronger shadow on hover */
+    }
+
+
+    h1, h3, h4 {
+      text-align: center;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 96%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-weight: 300;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:hover,
+    select:hover,
+    textarea:hover {
+        transform: translateY(-2px); /* slightly lift the box */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* subtle shadow on hover */
+    }
+
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #6366f1, #22c55e);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .banner {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .banner-img {
+        display: center;           /* centers image */
+        margin: 0 auto;           /* centers image */
+        max-width: 100%;           /* adjusts for container width */
+        height: auto;
+        border-radius: 16px;      /* rounded corners */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25); /* shadow */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth hover */
+    }
+
+    .banner-img:hover {
+        transform: scale(1.05);       /* slight zoom on hover */
+        box-shadow: 0 12px 25px rgba(0,0,0,0.35); /* stronger shadow */
+    }
+
+    .event-info {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #03020b; /* dark text */
+    }
+
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1; /* behind your container */
+        background: #0a1f44; /* dark blue base color */
+    }
+
+
+
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="banner">
+        <img src="banner.png" alt="TechWave Banner" class="banner-img">
+    </div>
+    <div class="event-info">
+        📍 Venue: Microsoft Office Gurgaon &nbsp; | &nbsp; 🕘 Time: 9am to 5pm <br>📅 Date: 14 Sept 2025
+    </div>
+    <form id="registrationForm">
+      <label>🙋 Name *</label>
+      <input type="text" name="name" required>
+
+      <label>📧 Email *</label>
+      <input type="email" name="email" required>
+
+      <label>📱 Contact Number *</label>
+      <input type="tel" name="contact" required>
+
+      <label>🎓 Year of Study *</label>
+      <select name="year" required>
+        <option value="">Select Year</option>
+        <option>Foundation</option>
+        <option>Diploma</option>
+        <option>BSc Level</option>
+        <option>BS Level</option>
+      </select>
+
+      <label>🏠 House Affiliation *</label>
+      <select name="house" required>
+        <option value="">Select House</option>
+        <option>Gir</option>
+        <option>Kanha</option>
+        <option>Saranda</option>
+        <option>Corbett</option>
+        <option>Pichavaram</option>
+        <option>Bandipur</option>
+        <option>Nallamala</option>
+        <option>Namdapha</option>
+        <option>Wayanad</option>
+        <option>Sundarbans</option>
+        <option>Nilgiri</option>
+      </select>
+
+      <label>🔗 LinkedIn Profile</label>
+      <input type="url" name="linkedin">
+
+      <label>💡 Why should we select you over other applicants? *</label>
+      <textarea name="why" rows="3" required></textarea>
+
+      <label>💭 Suggestions</label>
+      <textarea name="suggestions" rows="2"></textarea>
+
+      <button type="submit">🚀 Submit</button>
+    </form>
+    <div id="confirmationMessage" style="display:none; text-align:center; padding:20px;">
+  <h2>🎉 Form Submitted Successfully!</h2>
+  <p>Thanks for your interest in TechWave Delhi Edition. We will reach out to you soon!</p>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+
+    <script>
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbzbcuMZs_c-_QrC3SPPvDx-fmr5IMNkxNpJIrFPhf6SQ7ejHMQism794-xKna8DLT39/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    // Hide the form
+    this.style.display = "none";
+
+    // Show the confirmation message
+    document.getElementById("confirmationMessage").style.display = "block";
+  })
+  .catch(error => alert("Error submitting form: " + error));
+});
+</script>
+
+<script>
+  particlesJS('particles-js', {
+    "particles": {
+      "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+    }
+  });
+</script>
+
+
+  </div>
+</body>
+</html>
